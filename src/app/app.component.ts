@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
+import {RequestService} from './request.service';
+
 
 @Component({
   selector: 'app-root',
   imports: [],
-  template: ""
+  template: "{{url}}",
 })
-export class AppComponent {
-  title = 'ssr-test';
+export class AppComponent{
+
+  private requestService = inject(RequestService)
+  url = this.requestService.getUrl();
 }
